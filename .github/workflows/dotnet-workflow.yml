@@ -8,7 +8,18 @@ on:
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+jobs:
+  SonarCloudCodeReviewScan:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone Repo for Code Scan
+      uses: actions/checkout@v4
+      -name: Code Scan with Sonar Cloud
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        SONAR_TOKEN: ${{ secrets. SONAR TOKEN }}
 jobs:
   build-dotnet-app:
 
@@ -19,7 +30,7 @@ jobs:
         working-directory: dotnet-sample-app
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
