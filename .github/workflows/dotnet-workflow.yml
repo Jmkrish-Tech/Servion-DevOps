@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 jobs:
   Dotnet-Sample-SonarCloudCodeReviewScan-Build-and-Test:
-    name: SonarCloud Scan
+    name: Servion DevOps Sampele DotNet App
     runs-on: ubuntu-latest
     defaults:
       run:
