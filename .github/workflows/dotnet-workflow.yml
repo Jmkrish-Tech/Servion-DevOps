@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Code Check out
         uses: actions/checkout@v4
+
+      - run: git fetch --unshallow
         
       - name: Setup .NET
         uses: actions/setup-dotnet@v4.0.1
