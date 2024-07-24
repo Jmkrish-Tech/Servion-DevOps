@@ -17,16 +17,9 @@ jobs:
         working-directory: dotnet-sample-app
         
     steps:
-      - name: clone Repo for Code Scan
+      - name: Code Check out
         uses: actions/checkout@v4
-      - name: Code Scan with Sonar Cloud
-        with:
-          fetch-depth: 0
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          SONAR_TOKEN: ${{ secrets. SONAR_TOKEN }}
-
+        
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
         with:
@@ -40,3 +33,11 @@ jobs:
       
       - name: Test
         run: dotnet test --no-build --verbosity normal
+
+      - name: Code Scan with Sonar Cloud
+        with:
+          fetch-depth: 0
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          SONAR_TOKEN: ${{ secrets. SONAR_TOKEN }}
