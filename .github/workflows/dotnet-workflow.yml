@@ -20,6 +20,8 @@ jobs:
       - name: clone Repo for Code Scan
         uses: actions/checkout@v4
       - name: Code Scan with Sonar Cloud
+        with:
+          fetch-depth: 0
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
