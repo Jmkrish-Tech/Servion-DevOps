@@ -37,7 +37,7 @@ jobs:
       - name: Code Scan with Sonar Cloud
         with:
           fetch-depth: 0
-        uses: sonarsource/sonarcloud-github-action@Latest
+        uses: sonarsource/sonarcloud-github-action@v2.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
           SONAR_TOKEN: ${{ secrets. SONAR_TOKEN }}
